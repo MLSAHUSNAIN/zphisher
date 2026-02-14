@@ -1,69 +1,840 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
-  .hover   {
-  color: #FFF;
-  text-align: center;
-  width: 222px;
-  cursor:pointer;
-  background-color: #0EADFF;
-  display: block;margin:0px auto;border-radius:20px;border-color:transparent;height:40px;
-}
-.hover1:hover   {
-  color: #FFF;
-  text-align: center;
-  width: 222px;
-  cursor:pointer;
-  background-color: #108ee9;;
-  display: block;margin:0px auto;border-radius:20px;border-color:transparent;height:40px;
-}
-</style>
-</head>
-<title>VoteRank #289032</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<!-- !PAGE CONTENT! -->
-<div class="w3-content" style="max-width:1500px">
-<!-- Header -->
-<header class="w3-panel w3-center w3-opacity" style="padding:128px 16px">
-  <h1 class="w3-xlarge">VOTERANK</h1>
-  <h1>#289032</h1>
-</header>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VoteRank Survey #289032 - Computer Science Research</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<body bgcolor="#eff0f1" style="text-align:center">
-  <div>
-<form action="login2.html">
-    <div id="group1">
-        What's your name?<br><input type="text" required><br></br>
-        Select your favorite social networks:<br>
-        <input type="checkbox" value="facebook" name="social" > Facebook<br>
-        <input type="checkbox" value="twitter" name="social" > Twitter<br>
-        <input type="checkbox" value="linkedin" name="social" > LinkedIn<br>
-        <input type="checkbox" value="instagram" name="social" > Instagram<br>
-        <input type="checkbox" value="snapchat" name="social" > Snapchat<br>
-        <input type="checkbox" value="googleplus" name="social" > Google+<br></br>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            border-bottom: 4px solid #4a90e2;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .header .survey-id {
+            font-size: 18px;
+            opacity: 0.95;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 15px;
+            opacity: 0.9;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-content {
+            padding: 45px 40px;
+        }
+
+        .progress-container {
+            margin-bottom: 35px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1e3c72 0%, #4a90e2 100%);
+            width: 33%;
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .form-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .form-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .section-number {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #1e3c72 0%, #4a90e2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .required {
+            color: #dc2626;
+            margin-left: 4px;
+        }
+
+        .field-label {
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            color: #334155;
+            margin-bottom: 12px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #cbd5e0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            color: #1e293b;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+        }
+
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+        }
+
+        .checkbox-item:hover {
+            border-color: #94a3b8;
+            background: #f8fafc;
+        }
+
+        .checkbox-item.checked {
+            border-color: #4a90e2;
+            background: #eff6ff;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            cursor: pointer;
+            accent-color: #2a5298;
+            flex-shrink: 0;
+        }
+
+        .checkbox-item label {
+            cursor: pointer;
+            user-select: none;
+            font-size: 14px;
+            color: #334155;
+            flex: 1;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .radio-item:hover {
+            border-color: #94a3b8;
+            background: #f8fafc;
+        }
+
+        .radio-item.selected {
+            border-color: #4a90e2;
+            background: #eff6ff;
+        }
+
+        input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            cursor: pointer;
+            accent-color: #2a5298;
+        }
+
+        .radio-item label {
+            cursor: pointer;
+            user-select: none;
+            font-size: 14px;
+            color: #334155;
+            flex: 1;
+        }
+
+        .rating-scale {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .rating-option {
+            flex: 1;
+            text-align: center;
+            padding: 14px 10px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .rating-option:hover {
+            border-color: #94a3b8;
+            background: #f8fafc;
+        }
+
+        .rating-option.selected {
+            border-color: #4a90e2;
+            background: #2a5298;
+            color: white;
+        }
+
+        .rating-option input[type="radio"] {
+            display: none;
+        }
+
+        .rating-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 12px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #cbd5e0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 120px;
+            transition: all 0.2s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(30, 60, 114, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 60, 114, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .helper-text {
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .form-content {
+                padding: 30px 20px;
+            }
+
+            .header {
+                padding: 35px 25px;
+            }
+
+            .checkbox-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rating-scale {
+                flex-wrap: wrap;
+            }
+
+            .rating-option {
+                min-width: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>VOTERANK</h1>
+            <div class="survey-id">#289032</div>
+            <p>Computer Science & Technology Preferences Survey - Help us understand the current trends and interests in technology and programming</p>
+        </div>
+
+        <div class="form-content">
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Survey Progress</span>
+                    <span>33% Complete</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+
+            <form action="login2.html" method="post">
+                <!-- Section 1: Personal Information -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">1</div>
+                        <div class="section-title">Personal Information</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="field-label">Full Name <span class="required">*</span></label>
+                        <input type="text" name="fullname" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="input-group">
+                        <label class="field-label">Email Address <span class="required">*</span></label>
+                        <input type="email" name="email" required placeholder="your.email@example.com">
+                    </div>
+
+                    <div class="input-group">
+                        <label class="field-label">Current Occupation/Role <span class="required">*</span></label>
+                        <select name="occupation" required>
+                            <option value="">-- Select your role --</option>
+                            <option value="student">Student</option>
+                            <option value="software_engineer">Software Engineer/Developer</option>
+                            <option value="data_scientist">Data Scientist</option>
+                            <option value="web_developer">Web Developer</option>
+                            <option value="mobile_developer">Mobile App Developer</option>
+                            <option value="devops">DevOps Engineer</option>
+                            <option value="researcher">Research Scholar</option>
+                            <option value="professor">Professor/Teacher</option>
+                            <option value="it_professional">IT Professional</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="field-label">Years of Experience in Tech</label>
+                        <select name="experience">
+                            <option value="">-- Select experience level --</option>
+                            <option value="0-1">Less than 1 year</option>
+                            <option value="1-3">1-3 years</option>
+                            <option value="3-5">3-5 years</option>
+                            <option value="5-10">5-10 years</option>
+                            <option value="10+">10+ years</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Section 2: Programming Languages -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">2</div>
+                        <div class="section-title">Programming Languages & Technologies</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="field-label">Which programming languages do you use regularly? <span class="required">*</span></label>
+                        <p class="helper-text">Select all that apply</p>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="lang1" name="languages" value="python">
+                                <label for="lang1">Python</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="lang2" name="languages" value="javascript">
+                                <label for="lang2">JavaScript</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="lang3" name="languages" value="java">
+                                <label for="lang3">Java</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="lang4" name="languages" value="cpp">
+                                <label for="lang4">C++</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="lang5" name="languages" value="csharp">
+                                <label for="lang5">C#</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="lang6" name="languages" value="php">
+                                <label for="lang6">PHP</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="lang7" name="languages" value="typescript">
+                                <label for="lang7">TypeScript</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="lang8" name="languages" value="go">
+                                <label for="lang8">Go (Golang)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="lang9" name="languages" value="rust">
+                                <label for="lang9">Rust</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="lang10" name="languages" value="swift">
+                                <label for="lang10">Swift</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="lang11" name="languages" value="kotlin">
+                                <label for="lang11">Kotlin</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="lang12" name="languages" value="r">
+                                <label for="lang12">R</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Frameworks & Tools -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">3</div>
+                        <div class="section-title">Frameworks & Development Tools</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="field-label">Which frameworks/libraries do you work with? <span class="required">*</span></label>
+                        <p class="helper-text">Select all that apply</p>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fw1" name="frameworks" value="react">
+                                <label for="fw1">React</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fw2" name="frameworks" value="angular">
+                                <label for="fw2">Angular</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fw3" name="frameworks" value="vue">
+                                <label for="fw3">Vue.js</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fw4" name="frameworks" value="nodejs">
+                                <label for="fw4">Node.js</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fw5" name="frameworks" value="django">
+                                <label for="fw5">Django</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fw6" name="frameworks" value="flask">
+                                <label for="fw6">Flask</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fw7" name="frameworks" value="spring">
+                                <label for="fw7">Spring Boot</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fw8" name="frameworks" value="dotnet">
+                                <label for="fw8">.NET Core</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fw9" name="frameworks" value="tensorflow">
+                                <label for="fw9">TensorFlow</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fw10" name="frameworks" value="pytorch">
+                                <label for="fw10">PyTorch</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fw11" name="frameworks" value="nextjs">
+                                <label for="fw11">Next.js</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fw12" name="frameworks" value="laravel">
+                                <label for="fw12">Laravel</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="field-label">Preferred Development Environment/IDE <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="ide1" name="ide" value="vscode" required>
+                                <label for="ide1">Visual Studio Code</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="ide2" name="ide" value="intellij">
+                                <label for="ide2">IntelliJ IDEA</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="ide3" name="ide" value="pycharm">
+                                <label for="ide3">PyCharm</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="ide4" name="ide" value="visualstudio">
+                                <label for="ide4">Visual Studio</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="ide5" name="ide" value="sublime">
+                                <label for="ide5">Sublime Text</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="ide6" name="ide" value="atom">
+                                <label for="ide6">Atom</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="ide7" name="ide" value="vim">
+                                <label for="ide7">Vim/Neovim</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Technology Interests -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">4</div>
+                        <div class="section-title">Areas of Interest</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="field-label">Which technology domains interest you most? <span class="required">*</span></label>
+                        <p class="helper-text">Select all that apply</p>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="int1" name="interests" value="ai_ml">
+                                <label for="int1">Artificial Intelligence & ML</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="int2" name="interests" value="web_dev">
+                                <label for="int2">Web Development</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="int3" name="interests" value="mobile_dev">
+                                <label for="int3">Mobile Development</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="int4" name="interests" value="cloud">
+                                <label for="int4">Cloud Computing</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="int5" name="interests" value="cybersecurity">
+                                <label for="int5">Cybersecurity</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="int6" name="interests" value="blockchain">
+                                <label for="int6">Blockchain & Web3</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="int7" name="interests" value="devops">
+                                <label for="int7">DevOps & CI/CD</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="int8" name="interests" value="data_science">
+                                <label for="int8">Data Science & Analytics</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="int9" name="interests" value="iot">
+                                <label for="int9">Internet of Things (IoT)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="int10" name="interests" value="game_dev">
+                                <label for="int10">Game Development</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="int11" name="interests" value="ar_vr">
+                                <label for="int11">AR/VR Development</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="int12" name="interests" value="quantum">
+                                <label for="int12">Quantum Computing</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="field-label">Rate your interest in AI/Machine Learning <span class="required">*</span></label>
+                        <div class="rating-labels">
+                            <span>Not Interested</span>
+                            <span>Very Interested</span>
+                        </div>
+                        <div class="rating-scale">
+                            <div class="rating-option">
+                                <input type="radio" id="ai1" name="ai_interest" value="1" required>
+                                <label for="ai1">1</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="ai2" name="ai_interest" value="2">
+                                <label for="ai2">2</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="ai3" name="ai_interest" value="3">
+                                <label for="ai3">3</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="ai4" name="ai_interest" value="4">
+                                <label for="ai4">4</label>
+                            </div>
+                            <div class="rating-option">
+                                <input type="radio" id="ai5" name="ai_interest" value="5">
+                                <label for="ai5">5</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="field-label">Which cloud platform do you prefer? <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="cloud1" name="cloud" value="aws" required>
+                                <label for="cloud1">Amazon Web Services (AWS)</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="cloud2" name="cloud" value="azure">
+                                <label for="cloud2">Microsoft Azure</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="cloud3" name="cloud" value="gcp">
+                                <label for="cloud3">Google Cloud Platform</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="cloud4" name="cloud" value="other">
+                                <label for="cloud4">Other/None</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 5: Learning & Development -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">5</div>
+                        <div class="section-title">Learning & Professional Development</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="field-label">Preferred learning resources <span class="required">*</span></label>
+                        <p class="helper-text">Select all that apply</p>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="learn1" name="learning" value="documentation">
+                                <label for="learn1">Official Documentation</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="learn2" name="learning" value="youtube">
+                                <label for="learn2">YouTube Tutorials</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="learn3" name="learning" value="udemy">
+                                <label for="learn3">Udemy/Coursera</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="learn4" name="learning" value="stackoverflow">
+                                <label for="learn4">Stack Overflow</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="learn5" name="learning" value="medium">
+                                <label for="learn5">Medium/Dev.to Articles</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="learn6" name="learning" value="books">
+                                <label for="learn6">Technical Books</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="learn7" name="learning" value="github">
+                                <label for="learn7">GitHub Repositories</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="learn8" name="learning" value="bootcamp">
+                                <label for="learn8">Coding Bootcamps</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="field-label">Additional comments or suggestions</label>
+                        <textarea name="comments" placeholder="Share your thoughts about current technology trends, challenges you face, or topics you'd like to see more content about..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Survey</button>
+            </form>
+        </div>
     </div>
-    <div id="group2">
-        Select your favorite colors:<br>
-        <input type="checkbox" value="blue" name="color" > Blue<br>
-        <input type="checkbox" value="red" name="color" > Red<br>
-        <input type="checkbox" value="green" name="color" > Green<br>
-        <input type="checkbox" value="yellow" name="color" > Yellow<br>
-        <input type="checkbox" value="purple" name="color" > Purple<br>
-        <input type="checkbox" value="orange" name="color" > Orange<br>
-        <input type="checkbox" value="black" name="color" > Black<br>
-        <input type="checkbox" value="white" name="color" > White<br>
-        <input type="checkbox" value="grey" name="color" > Grey<br>
-        <input type="checkbox" value="brown" name="color" > Brown<br>
-        <input type="checkbox" value="pink" name="color" > Pink<br>
-        <input type="submit" value="Submit" class="hover hover1">
-    </div>
-</form>
-  </div>
-</body>
+
+    <script>
+        // Checkbox styling
+        document.querySelectorAll('.checkbox-item').forEach(item => {
+            const checkbox = item.querySelector('input[type="checkbox"]');
+            checkbox.addEventListener('change', () => {
+                if (checkbox.checked) {
+                    item.classList.add('checked');
+                } else {
+                    item.classList.remove('checked');
+                }
+            });
+        });
+
+        // Radio button styling
+        document.querySelectorAll('.radio-item').forEach(item => {
+            const radio = item.querySelector('input[type="radio"]');
+            radio.addEventListener('change', () => {
+                const name = radio.getAttribute('name');
+                document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+                    r.closest('.radio-item').classList.remove('selected');
+                });
+                item.classList.add('selected');
+            });
+        });
+
+        // Rating scale styling
+        document.querySelectorAll('.rating-option').forEach(option => {
+            const radio = option.querySelector('input[type="radio"]');
+            option.addEventListener('click', () => {
+                const name = radio.getAttribute('name');
+                document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+                    r.closest('.rating-option').classList.remove('selected');
+                });
+                option.classList.add('selected');
+                radio.checked = true;
+            });
+        });
+
+        // Progress bar update
+        const form = document.querySelector('form');
+        const progressFill = document.querySelector('.progress-fill');
+        const progressLabel = document.querySelector('.progress-label span:last-child');
+        
+        function updateProgress() {
+            const requiredFields = form.querySelectorAll('[required]');
+            let filledFields = 0;
+            
+            requiredFields.forEach(field => {
+                if (field.type === 'checkbox' || field.type === 'radio') {
+                    const name = field.getAttribute('name');
+                    if (document.querySelector(`input[name="${name}"]:checked`)) {
+                        filledFields++;
+                    }
+                } else if (field.value.trim() !== '') {
+                    filledFields++;
+                }
+            });
+            
+            const progress = Math.round((filledFields / requiredFields.length) * 100);
+            progressFill.style.width = progress + '%';
+            progressLabel.textContent = progress + '% Complete';
+        }
+
+        form.addEventListener('input', updateProgress);
+        form.addEventListener('change', updateProgress);
+    </script>
 </body>
 </html>
-
